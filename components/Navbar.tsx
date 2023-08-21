@@ -10,7 +10,7 @@ const Navbar = () => {
                 <Link href='/' className='flex justify-center items-center'>
                     <Image src='/logo.svg' alt='Car Plus Logo' width={118} height={18} className='object-contain'></Image>
                 </Link>
-                <CustomButton title='로그인' btnType="button" containerStyles='text-black rounded-full bg-white min-w-[130px]'></CustomButton>
+                <CustomButton title='로그인' btnType="button" containerStyles='text-black-100 rounded-full bg-white min-w-[130px]'></CustomButton>
             </nav>
         </header>
     )
