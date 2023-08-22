@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -28,10 +28,10 @@
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center py-3 px-6 outline-none;
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
 
-/* HERO */
+/* Hero */
 .hero {
   @apply flex xl:flex-row flex-col items-center gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
@@ -56,7 +56,7 @@
   @apply absolute xl:-top-24 xl:right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
 
-/* FOOTER */
+/* Footer */
 .footer__links {
   @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
 }
@@ -69,7 +69,7 @@
   @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
 }
 
-/* HOME */
+/* Home */
 .home__text-container {
   @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
 }
@@ -80,6 +80,14 @@
 
 .home__filter-container {
   @apply flex justify-start flex-wrap items-center gap-2;
+}
+
+.home__error-container {
+  @apply mt-16 flex justify-center items-center flex-col gap-2;
+}
+
+.home__cars-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
 }
 
 /* search manufacturer */
@@ -93,4 +101,21 @@
 
 .search-manufacturer__option {
   @apply cursor-pointer select-none py-2 pl-10 pr-4;
+}
+
+/* Car Card */
+.car-card {
+  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl transition-all;
+}
+
+.car-card__content {
+  @apply w-full flex justify-between items-start gap-2;
+}
+
+.car-card__content-title {
+  @apply text-[22px] leading-[26px] font-bold capitalize;
+}
+
+.car-card__btn-container {
+  @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
 }
