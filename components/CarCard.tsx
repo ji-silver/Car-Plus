@@ -15,26 +15,26 @@ interface CarCardProps {
 const CarCard = ({ car }: CarCardProps) => {
     const [isOpen, setIsOpen] = useState(false)
     // 구조 분해 할당
-    const { city_mpg, make, model, year, transmission, drive } = car;
+    const { combination_mpg, make, model, year, transmission, drive } = car;
 
     // 렌트비 계산하기 위해서 함수 실행하기 위한 city_mpg, year 넘겨주기
-    const carRent = calculateCarRent(city_mpg, year);
+    const carRent = calculateCarRent(combination_mpg, year);
 
     // 한국 기준으로 연비 바꾸기
-    const mpgKr = city_mpg * 0.425144
+    const mpgKr = combination_mpg * 0.425144
 
     return (
         <div className='car-card group'>
             <div className='car-card__content'>
                 <h2 className='car-card__content-title'>{make} {model}</h2>
             </div>
-            <p className='flex mt-6 text-[28px] font-bold font-second font-extrabold'>
+            <p className='flex mt-6 text-[28px] text-bold font-second font-extrabold'>
                 {parseInt(carRent).toLocaleString('ko-KR')}원
                 <span className='self-end text-[14px] font-medium'>/24시간</span>
             </p>
 
             <div className='relative w-full h-40 my-3 object-contain'>
-                <Image src='/hero.png' alt="car model" fill priority className='obejct-contain' />
+                <Image src='/hero.png' alt="car model" fill priority className='object-contain' />
             </div>
 
             <div className='relative flex w-full mt-2'>
@@ -62,7 +62,7 @@ const CarCard = ({ car }: CarCardProps) => {
                     <CustomButton title="더보기" textStyles="text-white text-[14px] leading-[17px] font-bold" containerStyles='w-full py-[16px] rounded-full bg-primary-blue transition-all' handleClick={() => setIsOpen(true)} btnType='button' rightIcon />
                 </div>
             </div>
-            <CarDetails />
+            <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
         </div>
     )
 }

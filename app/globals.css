@@ -37,7 +37,7 @@
 }
 
 .hero__title {
-  @apply sm:text-[64px] text-[50px] font-extrabold;
+  @apply lg:text-[64px] text-[44px] font-extrabold;
 }
 
 .hero__subtitle {

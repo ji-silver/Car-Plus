@@ -32,3 +32,11 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
+
+export interface KeyTranslations {
+  [key: string]: string;
+}
+
+export interface ValueTransforms {
+  [key: string]: (value: any) => string;
+}

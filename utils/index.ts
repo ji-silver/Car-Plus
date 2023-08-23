@@ -9,7 +9,7 @@ export async function fetchCars() {
 
   try {
     const res = await axios.get(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera",
       {
         headers: headers,
       }
@@ -23,13 +23,13 @@ export async function fetchCars() {
 }
 
 // 렌트비 계산하기 (연비, 연식이 높을 수록 대여료 증가)
-export const calculateCarRent = (city_mpg: number, year: number) => {
-  const basePricePerDay = 30000; // 하루 대여
-  const mileageFactor = 200; // 주행 거리에 따른 추가 금액
-  const ageFactor = 50; // 차량 연식 추가 금액 (1년 증가 시 추가)
+export const calculateCarRent = (combination_mpg: number, year: number) => {
+  const basePricePerDay = 10000; // 하루 대여
+  const mileageFactor = 1000; // 주행 거리에 따른 추가 금액
+  const ageFactor = 500; // 차량 연식 추가 금액 (1년 증가 시 추가)
 
   // 주행 거리에 대한 금액 계산 (주행 연비 * 주행 거리 금액)
-  const mileageRate = city_mpg * mileageFactor;
+  const mileageRate = combination_mpg * mileageFactor;
   // 차량 연식에 대한 추가 금액 계산 (현재 - year * 차량 연식 금액 추가)
   const ageRate = (new Date().getFullYear() - year) * ageFactor;
 
