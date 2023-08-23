@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CarProps } from "@/types";
 
 // API 데이터 가져오기
 export async function fetchCars() {
@@ -9,7 +10,7 @@ export async function fetchCars() {
 
   try {
     const res = await axios.get(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera",
+      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3",
       {
         headers: headers,
       }
@@ -38,4 +39,21 @@ export const calculateCarRent = (combination_mpg: number, year: number) => {
 
   // 대여료 반올림 하기
   return rentalRatePerDay.toFixed(0);
+};
+
+// 차량 이미지 가져오기
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+  const url = new URL("https://cdn.imagin.studio/getimage");
+
+  const { make, year, model } = car;
+  // url에 파라미터 추가하기
+  url.searchParams.append("customer", "hrjavascript-mastery");
+  url.searchParams.append("make", make);
+  // 공백 기준으로 첫번째 부분 사용
+  url.searchParams.append("modelFamily", model.split(" ")[0]);
+  url.searchParams.append("zoomType", "fullscreen");
+  url.searchParams.append("modelYear", `${year}`);
+  url.searchParams.append("angle", `${angle}`);
+
+  return `${url}`;
 };
